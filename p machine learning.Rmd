@@ -1,0 +1,61 @@
+##This is my answer for the machine learning assignment. Thank you.
+
+
+###part 1
+
+1.delete the columns that have too many NAs and blanks in excel. The new excel files are saved as "pml-training1.csv" and "pml-testing.csv" .Names of the variables I am using have been shown in the output of names(data).
+load the data and divide the training dataset into two parts.The first part will be used for training. The second part will be used for estimated error for the untouched data.
+
+```{r}
+library(caret)
+data <- read.csv("d://pml-training1.csv")
+newdata <- read.csv("d://pml-testing.csv")
+names(data)
+intrain <- createDataPartition(y=data$classe, p=0.7, list=FALSE)
+traindata <- data[intrain,]
+testdata <-data[-intrain,]
+summary(traindata)
+```
+
+###part 2
+
+2.preprocess the data--standardizing with center scale method
+(exclude the Classe variable)
+
+```{r}
+preobj <- preProcess(traindata[,-54],method=c("center","scale"))
+traindata1 <- predict(preobj,traindata[,-54])
+testdata1 <- predict(preobj,testdata[,-54])
+```
+
+3.use PCA method to extract essential features from the variables,I set the thresh to 0.95 and the pca method produce 27 components to catch 95 percent of the variance 
+
+```{r}
+pca1 <- preProcess(traindata1,method="pca",thresh=0.95)
+traindata2 <- predict(pca1,traindata1)
+testdata2 <- predict(pca1,testdata1)
+summary(traindata2)
+```
+
+###part 3
+
+4.use random forest method to achieve classification mission. I set the seed to be 32343,so that others can reproduce my result. 
+To make the result more reliable, I also apply cross validation method here. In the train() function, I set the traincontrol method to be 2-fold cross validation. It is 2-fold since I want the whole process to be faster. In fact, I expect the out of sample error to be less than 10%. And finally,the accuracy turns out to be very high. Not a bad result.
+
+```{r}
+library(randomForest)
+set.seed(32343)
+traindata2$classe <- traindata$classe
+modfit <- train(classe ~ .,data=traindata2,method="rf",porx=TRUE, trControl = trainControl(method='cv',number=2))
+modfit
+  
+```
+
+5.achieve prediction for untouched data based on the fitting model.And the accuracy is quite high.In other words, error for the untouched data is quite low.
+
+
+```{r}
+prediction <- predict(modfit, testdata2)
+accuracy1 = sum(prediction ==testdata$classe)/length(prediction)
+accuracy1
+```

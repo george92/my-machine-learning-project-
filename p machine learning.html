@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<!-- saved from url=(0014)about:internet -->
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=9" >
+
+<title></title>
+
+<style type="text/css">
+body, td {
+   font-family: sans-serif;
+   background-color: white;
+   font-size: 12px;
+   margin: 8px;
+}
+
+tt, code, pre {
+   font-family: 'DejaVu Sans Mono', 'Droid Sans Mono', 'Lucida Console', Consolas, Monaco, monospace;
+}
+
+h1 { 
+   font-size:2.2em; 
+}
+
+h2 { 
+   font-size:1.8em; 
+}
+
+h3 { 
+   font-size:1.4em; 
+}
+
+h4 { 
+   font-size:1.0em; 
+}
+
+h5 { 
+   font-size:0.9em; 
+}
+
+h6 { 
+   font-size:0.8em; 
+}
+
+a:visited {
+   color: rgb(50%, 0%, 50%);
+}
+
+pre {	
+   margin-top: 0;
+   max-width: 95%;
+   border: 1px solid #ccc;
+   white-space: pre-wrap;
+}
+
+pre code {
+   display: block; padding: 0.5em;
+}
+
+code.r, code.cpp {
+   background-color: #F8F8F8;
+}
+
+table, td, th {
+  border: none;
+}
+
+blockquote {
+   color:#666666;
+   margin:0;
+   padding-left: 1em;
+   border-left: 0.5em #EEE solid;
+}
+
+hr {
+   height: 0px;
+   border-bottom: none;
+   border-top-width: thin;
+   border-top-style: dotted;
+   border-top-color: #999999;
+}
+
+@media print {
+   * { 
+      background: transparent !important; 
+      color: black !important; 
+      filter:none !important; 
+      -ms-filter: none !important; 
+   }
+
+   body { 
+      font-size:12pt; 
+      max-width:100%; 
+   }
+       
+   a, a:visited { 
+      text-decoration: underline; 
+   }
+
+   hr { 
+      visibility: hidden;
+      page-break-before: always;
+   }
+
+   pre, blockquote { 
+      padding-right: 1em; 
+      page-break-inside: avoid; 
+   }
+
+   tr, img { 
+      page-break-inside: avoid; 
+   }
+
+   img { 
+      max-width: 100% !important; 
+   }
+
+   @page :left { 
+      margin: 15mm 20mm 15mm 10mm; 
+   }
+     
+   @page :right { 
+      margin: 15mm 10mm 15mm 20mm; 
+   }
+
+   p, h2, h3 { 
+      orphans: 3; widows: 3; 
+   }
+
+   h2, h3 { 
+      page-break-after: avoid; 
+   }
+}
+
+</style>
+
+<!-- Styles for R syntax highlighter -->
+<style type="text/css">
+   pre .operator,
+   pre .paren {
+     color: rgb(104, 118, 135)
+   }
+
+   pre .literal {
+     color: rgb(88, 72, 246)
+   }
+
+   pre .number {
+     color: rgb(0, 0, 205);
+   }
+
+   pre .comment {
+     color: rgb(76, 136, 107);
+   }
+
+   pre .keyword {
+     color: rgb(0, 0, 255);
+   }
+
+   pre .identifier {
+     color: rgb(0, 0, 0);
+   }
+
+   pre .string {
+     color: rgb(3, 106, 7);
+   }
+</style>
+
+<!-- R syntax highlighter -->
+<script type="text/javascript">
+var hljs=new function(){function m(p){return p.replace(/&/gm,"&amp;").replace(/</gm,"&lt;")}function f(r,q,p){return RegExp(q,"m"+(r.cI?"i":"")+(p?"g":""))}function b(r){for(var p=0;p<r.childNodes.length;p++){var q=r.childNodes[p];if(q.nodeName=="CODE"){return q}if(!(q.nodeType==3&&q.nodeValue.match(/\s+/))){break}}}function h(t,s){var p="";for(var r=0;r<t.childNodes.length;r++){if(t.childNodes[r].nodeType==3){var q=t.childNodes[r].nodeValue;if(s){q=q.replace(/\n/g,"")}p+=q}else{if(t.childNodes[r].nodeName=="BR"){p+="\n"}else{p+=h(t.childNodes[r])}}}if(/MSIE [678]/.test(navigator.userAgent)){p=p.replace(/\r/g,"\n")}return p}function a(s){var r=s.className.split(/\s+/);r=r.concat(s.parentNode.className.split(/\s+/));for(var q=0;q<r.length;q++){var p=r[q].replace(/^language-/,"");if(e[p]){return p}}}function c(q){var p=[];(function(s,t){for(var r=0;r<s.childNodes.length;r++){if(s.childNodes[r].nodeType==3){t+=s.childNodes[r].nodeValue.length}else{if(s.childNodes[r].nodeName=="BR"){t+=1}else{if(s.childNodes[r].nodeType==1){p.push({event:"start",offset:t,node:s.childNodes[r]});t=arguments.callee(s.childNodes[r],t);p.push({event:"stop",offset:t,node:s.childNodes[r]})}}}}return t})(q,0);return p}function k(y,w,x){var q=0;var z="";var s=[];function u(){if(y.length&&w.length){if(y[0].offset!=w[0].offset){return(y[0].offset<w[0].offset)?y:w}else{return w[0].event=="start"?y:w}}else{return y.length?y:w}}function t(D){var A="<"+D.nodeName.toLowerCase();for(var B=0;B<D.attributes.length;B++){var C=D.attributes[B];A+=" "+C.nodeName.toLowerCase();if(C.value!==undefined&&C.value!==false&&C.value!==null){A+='="'+m(C.value)+'"'}}return A+">"}while(y.length||w.length){var v=u().splice(0,1)[0];z+=m(x.substr(q,v.offset-q));q=v.offset;if(v.event=="start"){z+=t(v.node);s.push(v.node)}else{if(v.event=="stop"){var p,r=s.length;do{r--;p=s[r];z+=("</"+p.nodeName.toLowerCase()+">")}while(p!=v.node);s.splice(r,1);while(r<s.length){z+=t(s[r]);r++}}}}return z+m(x.substr(q))}function j(){function q(x,y,v){if(x.compiled){return}var u;var s=[];if(x.k){x.lR=f(y,x.l||hljs.IR,true);for(var w in x.k){if(!x.k.hasOwnProperty(w)){continue}if(x.k[w] instanceof Object){u=x.k[w]}else{u=x.k;w="keyword"}for(var r in u){if(!u.hasOwnProperty(r)){continue}x.k[r]=[w,u[r]];s.push(r)}}}if(!v){if(x.bWK){x.b="\\b("+s.join("|")+")\\s"}x.bR=f(y,x.b?x.b:"\\B|\\b");if(!x.e&&!x.eW){x.e="\\B|\\b"}if(x.e){x.eR=f(y,x.e)}}if(x.i){x.iR=f(y,x.i)}if(x.r===undefined){x.r=1}if(!x.c){x.c=[]}x.compiled=true;for(var t=0;t<x.c.length;t++){if(x.c[t]=="self"){x.c[t]=x}q(x.c[t],y,false)}if(x.starts){q(x.starts,y,false)}}for(var p in e){if(!e.hasOwnProperty(p)){continue}q(e[p].dM,e[p],true)}}function d(B,C){if(!j.called){j();j.called=true}function q(r,M){for(var L=0;L<M.c.length;L++){if((M.c[L].bR.exec(r)||[null])[0]==r){return M.c[L]}}}function v(L,r){if(D[L].e&&D[L].eR.test(r)){return 1}if(D[L].eW){var M=v(L-1,r);return M?M+1:0}return 0}function w(r,L){return L.i&&L.iR.test(r)}function K(N,O){var M=[];for(var L=0;L<N.c.length;L++){M.push(N.c[L].b)}var r=D.length-1;do{if(D[r].e){M.push(D[r].e)}r--}while(D[r+1].eW);if(N.i){M.push(N.i)}return f(O,M.join("|"),true)}function p(M,L){var N=D[D.length-1];if(!N.t){N.t=K(N,E)}N.t.lastIndex=L;var r=N.t.exec(M);return r?[M.substr(L,r.index-L),r[0],false]:[M.substr(L),"",true]}function z(N,r){var L=E.cI?r[0].toLowerCase():r[0];var M=N.k[L];if(M&&M instanceof Array){return M}return false}function F(L,P){L=m(L);if(!P.k){return L}var r="";var O=0;P.lR.lastIndex=0;var M=P.lR.exec(L);while(M){r+=L.substr(O,M.index-O);var N=z(P,M);if(N){x+=N[1];r+='<span class="'+N[0]+'">'+M[0]+"</span>"}else{r+=M[0]}O=P.lR.lastIndex;M=P.lR.exec(L)}return r+L.substr(O,L.length-O)}function J(L,M){if(M.sL&&e[M.sL]){var r=d(M.sL,L);x+=r.keyword_count;return r.value}else{return F(L,M)}}function I(M,r){var L=M.cN?'<span class="'+M.cN+'">':"";if(M.rB){y+=L;M.buffer=""}else{if(M.eB){y+=m(r)+L;M.buffer=""}else{y+=L;M.buffer=r}}D.push(M);A+=M.r}function G(N,M,Q){var R=D[D.length-1];if(Q){y+=J(R.buffer+N,R);return false}var P=q(M,R);if(P){y+=J(R.buffer+N,R);I(P,M);return P.rB}var L=v(D.length-1,M);if(L){var O=R.cN?"</span>":"";if(R.rE){y+=J(R.buffer+N,R)+O}else{if(R.eE){y+=J(R.buffer+N,R)+O+m(M)}else{y+=J(R.buffer+N+M,R)+O}}while(L>1){O=D[D.length-2].cN?"</span>":"";y+=O;L--;D.length--}var r=D[D.length-1];D.length--;D[D.length-1].buffer="";if(r.starts){I(r.starts,"")}return R.rE}if(w(M,R)){throw"Illegal"}}var E=e[B];var D=[E.dM];var A=0;var x=0;var y="";try{var s,u=0;E.dM.buffer="";do{s=p(C,u);var t=G(s[0],s[1],s[2]);u+=s[0].length;if(!t){u+=s[1].length}}while(!s[2]);if(D.length>1){throw"Illegal"}return{r:A,keyword_count:x,value:y}}catch(H){if(H=="Illegal"){return{r:0,keyword_count:0,value:m(C)}}else{throw H}}}function g(t){var p={keyword_count:0,r:0,value:m(t)};var r=p;for(var q in e){if(!e.hasOwnProperty(q)){continue}var s=d(q,t);s.language=q;if(s.keyword_count+s.r>r.keyword_count+r.r){r=s}if(s.keyword_count+s.r>p.keyword_count+p.r){r=p;p=s}}if(r.language){p.second_best=r}return p}function i(r,q,p){if(q){r=r.replace(/^((<[^>]+>|\t)+)/gm,function(t,w,v,u){return w.replace(/\t/g,q)})}if(p){r=r.replace(/\n/g,"<br>")}return r}function n(t,w,r){var x=h(t,r);var v=a(t);var y,s;if(v){y=d(v,x)}else{return}var q=c(t);if(q.length){s=document.createElement("pre");s.innerHTML=y.value;y.value=k(q,c(s),x)}y.value=i(y.value,w,r);var u=t.className;if(!u.match("(\\s|^)(language-)?"+v+"(\\s|$)")){u=u?(u+" "+v):v}if(/MSIE [678]/.test(navigator.userAgent)&&t.tagName=="CODE"&&t.parentNode.tagName=="PRE"){s=t.parentNode;var p=document.createElement("div");p.innerHTML="<pre><code>"+y.value+"</code></pre>";t=p.firstChild.firstChild;p.firstChild.cN=s.cN;s.parentNode.replaceChild(p.firstChild,s)}else{t.innerHTML=y.value}t.className=u;t.result={language:v,kw:y.keyword_count,re:y.r};if(y.second_best){t.second_best={language:y.second_best.language,kw:y.second_best.keyword_count,re:y.second_best.r}}}function o(){if(o.called){return}o.called=true;var r=document.getElementsByTagName("pre");for(var p=0;p<r.length;p++){var q=b(r[p]);if(q){n(q,hljs.tabReplace)}}}function l(){if(window.addEventListener){window.addEventListener("DOMContentLoaded",o,false);window.addEventListener("load",o,false)}else{if(window.attachEvent){window.attachEvent("onload",o)}else{window.onload=o}}}var e={};this.LANGUAGES=e;this.highlight=d;this.highlightAuto=g;this.fixMarkup=i;this.highlightBlock=n;this.initHighlighting=o;this.initHighlightingOnLoad=l;this.IR="[a-zA-Z][a-zA-Z0-9_]*";this.UIR="[a-zA-Z_][a-zA-Z0-9_]*";this.NR="\\b\\d+(\\.\\d+)?";this.CNR="\\b(0[xX][a-fA-F0-9]+|(\\d+(\\.\\d*)?|\\.\\d+)([eE][-+]?\\d+)?)";this.BNR="\\b(0b[01]+)";this.RSR="!|!=|!==|%|%=|&|&&|&=|\\*|\\*=|\\+|\\+=|,|\\.|-|-=|/|/=|:|;|<|<<|<<=|<=|=|==|===|>|>=|>>|>>=|>>>|>>>=|\\?|\\[|\\{|\\(|\\^|\\^=|\\||\\|=|\\|\\||~";this.ER="(?![\\s\\S])";this.BE={b:"\\\\.",r:0};this.ASM={cN:"string",b:"'",e:"'",i:"\\n",c:[this.BE],r:0};this.QSM={cN:"string",b:'"',e:'"',i:"\\n",c:[this.BE],r:0};this.CLCM={cN:"comment",b:"//",e:"$"};this.CBLCLM={cN:"comment",b:"/\\*",e:"\\*/"};this.HCM={cN:"comment",b:"#",e:"$"};this.NM={cN:"number",b:this.NR,r:0};this.CNM={cN:"number",b:this.CNR,r:0};this.BNM={cN:"number",b:this.BNR,r:0};this.inherit=function(r,s){var p={};for(var q in r){p[q]=r[q]}if(s){for(var q in s){p[q]=s[q]}}return p}}();hljs.LANGUAGES.cpp=function(){var a={keyword:{"false":1,"int":1,"float":1,"while":1,"private":1,"char":1,"catch":1,"export":1,virtual:1,operator:2,sizeof:2,dynamic_cast:2,typedef:2,const_cast:2,"const":1,struct:1,"for":1,static_cast:2,union:1,namespace:1,unsigned:1,"long":1,"throw":1,"volatile":2,"static":1,"protected":1,bool:1,template:1,mutable:1,"if":1,"public":1,friend:2,"do":1,"return":1,"goto":1,auto:1,"void":2,"enum":1,"else":1,"break":1,"new":1,extern:1,using:1,"true":1,"class":1,asm:1,"case":1,typeid:1,"short":1,reinterpret_cast:2,"default":1,"double":1,register:1,explicit:1,signed:1,typename:1,"try":1,"this":1,"switch":1,"continue":1,wchar_t:1,inline:1,"delete":1,alignof:1,char16_t:1,char32_t:1,constexpr:1,decltype:1,noexcept:1,nullptr:1,static_assert:1,thread_local:1,restrict:1,_Bool:1,complex:1},built_in:{std:1,string:1,cin:1,cout:1,cerr:1,clog:1,stringstream:1,istringstream:1,ostringstream:1,auto_ptr:1,deque:1,list:1,queue:1,stack:1,vector:1,map:1,set:1,bitset:1,multiset:1,multimap:1,unordered_set:1,unordered_map:1,unordered_multiset:1,unordered_multimap:1,array:1,shared_ptr:1}};return{dM:{k:a,i:"</",c:[hljs.CLCM,hljs.CBLCLM,hljs.QSM,{cN:"string",b:"'\\\\?.",e:"'",i:"."},{cN:"number",b:"\\b(\\d+(\\.\\d*)?|\\.\\d+)(u|U|l|L|ul|UL|f|F)"},hljs.CNM,{cN:"preprocessor",b:"#",e:"$"},{cN:"stl_container",b:"\\b(deque|list|queue|stack|vector|map|set|bitset|multiset|multimap|unordered_map|unordered_set|unordered_multiset|unordered_multimap|array)\\s*<",e:">",k:a,r:10,c:["self"]}]}}}();hljs.LANGUAGES.r={dM:{c:[hljs.HCM,{cN:"number",b:"\\b0[xX][0-9a-fA-F]+[Li]?\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\b\\d+(?:[eE][+\\-]?\\d*)?L\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\b\\d+\\.(?!\\d)(?:i\\b)?",e:hljs.IMMEDIATE_RE,r:1},{cN:"number",b:"\\b\\d+(?:\\.\\d*)?(?:[eE][+\\-]?\\d*)?i?\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\.\\d+(?:[eE][+\\-]?\\d*)?i?\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"keyword",b:"(?:tryCatch|library|setGeneric|setGroupGeneric)\\b",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\.\\.\\.",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\.\\.\\d+(?![\\w.])",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\b(?:function)",e:hljs.IMMEDIATE_RE,r:2},{cN:"keyword",b:"(?:if|in|break|next|repeat|else|for|return|switch|while|try|stop|warning|require|attach|detach|source|setMethod|setClass)\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"literal",b:"(?:NA|NA_integer_|NA_real_|NA_character_|NA_complex_)\\b",e:hljs.IMMEDIATE_RE,r:10},{cN:"literal",b:"(?:NULL|TRUE|FALSE|T|F|Inf|NaN)\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"identifier",b:"[a-zA-Z.][a-zA-Z0-9._]*\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"operator",b:"<\\-(?!\\s*\\d)",e:hljs.IMMEDIATE_RE,r:2},{cN:"operator",b:"\\->|<\\-",e:hljs.IMMEDIATE_RE,r:1},{cN:"operator",b:"%%|~",e:hljs.IMMEDIATE_RE},{cN:"operator",b:">=|<=|==|!=|\\|\\||&&|=|\\+|\\-|\\*|/|\\^|>|<|!|&|\\||\\$|:",e:hljs.IMMEDIATE_RE,r:0},{cN:"operator",b:"%",e:"%",i:"\\n",r:1},{cN:"identifier",b:"`",e:"`",r:0},{cN:"string",b:'"',e:'"',c:[hljs.BE],r:0},{cN:"string",b:"'",e:"'",c:[hljs.BE],r:0},{cN:"paren",b:"[[({\\])}]",e:hljs.IMMEDIATE_RE,r:0}]}};
+hljs.initHighlightingOnLoad();
+</script>
+
+
+
+
+</head>
+
+<body>
+<p>##This is my answer for the machine learning assignment. Thank you.</p>
+
+<p>###part 1</p>
+
+<p>1.delete the columns that have too many NAs and blanks in excel. The new excel files are saved as &ldquo;pml-training1.csv&rdquo; and &ldquo;pml-testing.csv&rdquo; .Names of the variables I am using have been shown in the output of names(data).
+load the data and divide the training dataset into two parts.The first part will be used for training. The second part will be used for estimated error for the untouched data.</p>
+
+<pre><code class="r">library(caret)
+</code></pre>
+
+<pre><code>## Loading required package: lattice
+## Loading required package: ggplot2
+</code></pre>
+
+<pre><code class="r">data &lt;- read.csv(&quot;d://pml-training1.csv&quot;)
+newdata &lt;- read.csv(&quot;d://pml-testing.csv&quot;)
+names(data)
+</code></pre>
+
+<pre><code>##  [1] &quot;raw_timestamp_part_2&quot; &quot;num_window&quot;           &quot;roll_belt&quot;           
+##  [4] &quot;pitch_belt&quot;           &quot;yaw_belt&quot;             &quot;total_accel_belt&quot;    
+##  [7] &quot;gyros_belt_x&quot;         &quot;gyros_belt_y&quot;         &quot;gyros_belt_z&quot;        
+## [10] &quot;accel_belt_x&quot;         &quot;accel_belt_y&quot;         &quot;accel_belt_z&quot;        
+## [13] &quot;magnet_belt_x&quot;        &quot;magnet_belt_y&quot;        &quot;magnet_belt_z&quot;       
+## [16] &quot;roll_arm&quot;             &quot;pitch_arm&quot;            &quot;yaw_arm&quot;             
+## [19] &quot;total_accel_arm&quot;      &quot;gyros_arm_x&quot;          &quot;gyros_arm_y&quot;         
+## [22] &quot;gyros_arm_z&quot;          &quot;accel_arm_x&quot;          &quot;accel_arm_y&quot;         
+## [25] &quot;accel_arm_z&quot;          &quot;magnet_arm_x&quot;         &quot;magnet_arm_y&quot;        
+## [28] &quot;magnet_arm_z&quot;         &quot;roll_dumbbell&quot;        &quot;pitch_dumbbell&quot;      
+## [31] &quot;yaw_dumbbell&quot;         &quot;total_accel_dumbbell&quot; &quot;gyros_dumbbell_x&quot;    
+## [34] &quot;gyros_dumbbell_y&quot;     &quot;gyros_dumbbell_z&quot;     &quot;accel_dumbbell_x&quot;    
+## [37] &quot;accel_dumbbell_y&quot;     &quot;accel_dumbbell_z&quot;     &quot;magnet_dumbbell_x&quot;   
+## [40] &quot;magnet_dumbbell_y&quot;    &quot;magnet_dumbbell_z&quot;    &quot;roll_forearm&quot;        
+## [43] &quot;pitch_forearm&quot;        &quot;yaw_forearm&quot;          &quot;gyros_forearm_x&quot;     
+## [46] &quot;gyros_forearm_y&quot;      &quot;gyros_forearm_z&quot;      &quot;accel_forearm_x&quot;     
+## [49] &quot;accel_forearm_y&quot;      &quot;accel_forearm_z&quot;      &quot;magnet_forearm_x&quot;    
+## [52] &quot;magnet_forearm_y&quot;     &quot;magnet_forearm_z&quot;     &quot;classe&quot;
+</code></pre>
+
+<pre><code class="r">intrain &lt;- createDataPartition(y=data$classe, p=0.7, list=FALSE)
+traindata &lt;- data[intrain,]
+testdata &lt;-data[-intrain,]
+summary(traindata)
+</code></pre>
+
+<pre><code>##  raw_timestamp_part_2   num_window    roll_belt       pitch_belt    
+##  Min.   :   294       Min.   :  1   Min.   :-28.9   Min.   :-55.80  
+##  1st Qu.:252891       1st Qu.:219   1st Qu.:  1.1   1st Qu.:  1.85  
+##  Median :494674       Median :421   Median :113.0   Median :  5.30  
+##  Mean   :499683       Mean   :429   Mean   : 64.2   Mean   :  0.49  
+##  3rd Qu.:752275       3rd Qu.:645   3rd Qu.:123.0   3rd Qu.: 15.30  
+##  Max.   :998801       Max.   :864   Max.   :162.0   Max.   : 60.30  
+##     yaw_belt      total_accel_belt  gyros_belt_x      gyros_belt_y    
+##  Min.   :-180.0   Min.   : 0.0     Min.   :-1.0400   Min.   :-0.5300  
+##  1st Qu.: -88.3   1st Qu.: 3.0     1st Qu.:-0.0300   1st Qu.: 0.0000  
+##  Median : -13.4   Median :17.0     Median : 0.0300   Median : 0.0200  
+##  Mean   : -11.7   Mean   :11.3     Mean   :-0.0059   Mean   : 0.0395  
+##  3rd Qu.:   9.3   3rd Qu.:18.0     3rd Qu.: 0.1100   3rd Qu.: 0.1100  
+##  Max.   : 179.0   Max.   :28.0     Max.   : 2.2200   Max.   : 0.6400  
+##   gyros_belt_z    accel_belt_x      accel_belt_y    accel_belt_z   
+##  Min.   :-1.46   Min.   :-120.00   Min.   :-69.0   Min.   :-266.0  
+##  1st Qu.:-0.20   1st Qu.: -21.00   1st Qu.:  3.0   1st Qu.:-162.0  
+##  Median :-0.10   Median : -15.00   Median : 35.0   Median :-152.0  
+##  Mean   :-0.13   Mean   :  -5.78   Mean   : 30.2   Mean   : -72.4  
+##  3rd Qu.:-0.02   3rd Qu.:  -5.00   3rd Qu.: 61.0   3rd Qu.:  27.0  
+##  Max.   : 1.62   Max.   :  85.00   Max.   :164.0   Max.   : 105.0  
+##  magnet_belt_x   magnet_belt_y magnet_belt_z     roll_arm     
+##  Min.   :-52.0   Min.   :354   Min.   :-623   Min.   :-180.0  
+##  1st Qu.:  9.0   1st Qu.:581   1st Qu.:-375   1st Qu.: -31.3  
+##  Median : 35.0   Median :601   Median :-320   Median :   0.0  
+##  Mean   : 55.2   Mean   :594   Mean   :-346   Mean   :  18.3  
+##  3rd Qu.: 59.0   3rd Qu.:610   3rd Qu.:-306   3rd Qu.:  77.7  
+##  Max.   :485.0   Max.   :669   Max.   : 293   Max.   : 180.0  
+##    pitch_arm         yaw_arm        total_accel_arm  gyros_arm_x    
+##  Min.   :-88.80   Min.   :-180.00   Min.   : 1.0    Min.   :-6.370  
+##  1st Qu.:-25.60   1st Qu.: -42.20   1st Qu.:17.0    1st Qu.:-1.330  
+##  Median :  0.00   Median :   0.00   Median :27.0    Median : 0.080  
+##  Mean   : -4.47   Mean   :  -0.26   Mean   :25.5    Mean   : 0.035  
+##  3rd Qu.: 11.20   3rd Qu.:  47.00   3rd Qu.:33.0    3rd Qu.: 1.560  
+##  Max.   : 88.20   Max.   : 180.00   Max.   :66.0    Max.   : 4.870  
+##   gyros_arm_y      gyros_arm_z      accel_arm_x      accel_arm_y  
+##  Min.   :-3.440   Min.   :-2.330   Min.   :-383.0   Min.   :-318  
+##  1st Qu.:-0.790   1st Qu.:-0.080   1st Qu.:-241.0   1st Qu.: -54  
+##  Median :-0.240   Median : 0.230   Median : -45.0   Median :  14  
+##  Mean   :-0.252   Mean   : 0.269   Mean   : -60.3   Mean   :  33  
+##  3rd Qu.: 0.140   3rd Qu.: 0.720   3rd Qu.:  83.0   3rd Qu.: 141  
+##  Max.   : 2.840   Max.   : 2.990   Max.   : 437.0   Max.   : 308  
+##   accel_arm_z      magnet_arm_x   magnet_arm_y   magnet_arm_z 
+##  Min.   :-636.0   Min.   :-584   Min.   :-386   Min.   :-590  
+##  1st Qu.:-141.0   1st Qu.:-299   1st Qu.:  -6   1st Qu.: 138  
+##  Median : -46.0   Median : 288   Median : 202   Median : 445  
+##  Mean   : -70.8   Mean   : 191   Mean   : 157   Mean   : 308  
+##  3rd Qu.:  24.0   3rd Qu.: 634   3rd Qu.: 322   3rd Qu.: 545  
+##  Max.   : 292.0   Max.   : 782   Max.   : 582   Max.   : 694  
+##  roll_dumbbell    pitch_dumbbell    yaw_dumbbell     total_accel_dumbbell
+##  Min.   :-153.7   Min.   :-148.5   Min.   :-150.87   Min.   : 0.0        
+##  1st Qu.: -19.5   1st Qu.: -40.8   1st Qu.: -77.59   1st Qu.: 4.0        
+##  Median :  47.8   Median : -21.1   Median :  -3.01   Median :10.0        
+##  Mean   :  23.2   Mean   : -10.8   Mean   :   1.93   Mean   :13.7        
+##  3rd Qu.:  67.1   3rd Qu.:  17.8   3rd Qu.:  80.49   3rd Qu.:19.0        
+##  Max.   : 153.4   Max.   : 149.4   Max.   : 154.95   Max.   :58.0        
+##  gyros_dumbbell_x  gyros_dumbbell_y gyros_dumbbell_z accel_dumbbell_x
+##  Min.   :-204.00   Min.   :-2.10    Min.   : -2.3    Min.   :-419.0  
+##  1st Qu.:  -0.03   1st Qu.:-0.14    1st Qu.: -0.3    1st Qu.: -51.0  
+##  Median :   0.13   Median : 0.03    Median : -0.1    Median :  -8.0  
+##  Mean   :   0.16   Mean   : 0.05    Mean   : -0.1    Mean   : -28.8  
+##  3rd Qu.:   0.35   3rd Qu.: 0.21    3rd Qu.:  0.0    3rd Qu.:  10.0  
+##  Max.   :   2.22   Max.   :52.00    Max.   :317.0    Max.   : 235.0  
+##  accel_dumbbell_y accel_dumbbell_z magnet_dumbbell_x magnet_dumbbell_y
+##  Min.   :-182.0   Min.   :-334.0   Min.   :-643      Min.   :-741     
+##  1st Qu.:  -8.0   1st Qu.:-142.0   1st Qu.:-536      1st Qu.: 231     
+##  Median :  41.0   Median :  -1.0   Median :-479      Median : 310     
+##  Mean   :  52.2   Mean   : -38.1   Mean   :-329      Mean   : 220     
+##  3rd Qu.: 111.0   3rd Qu.:  39.0   3rd Qu.:-306      3rd Qu.: 389     
+##  Max.   : 315.0   Max.   : 318.0   Max.   : 584      Max.   : 632     
+##  magnet_dumbbell_z  roll_forearm     pitch_forearm     yaw_forearm    
+##  Min.   :-249.0    Min.   :-180.00   Min.   :-72.50   Min.   :-180.0  
+##  1st Qu.: -46.0    1st Qu.:  -0.81   1st Qu.:  0.00   1st Qu.: -68.4  
+##  Median :  13.0    Median :  22.40   Median :  9.57   Median :   0.0  
+##  Mean   :  46.2    Mean   :  34.14   Mean   : 10.87   Mean   :  19.6  
+##  3rd Qu.:  96.0    3rd Qu.: 140.00   3rd Qu.: 28.50   3rd Qu.: 110.0  
+##  Max.   : 452.0    Max.   : 180.00   Max.   : 89.80   Max.   : 180.0  
+##  gyros_forearm_x   gyros_forearm_y  gyros_forearm_z  accel_forearm_x 
+##  Min.   :-22.000   Min.   : -7.02   Min.   : -7.94   Min.   :-496.0  
+##  1st Qu.: -0.220   1st Qu.: -1.46   1st Qu.: -0.18   1st Qu.:-177.0  
+##  Median :  0.050   Median :  0.03   Median :  0.08   Median : -57.0  
+##  Mean   :  0.156   Mean   :  0.08   Mean   :  0.16   Mean   : -61.5  
+##  3rd Qu.:  0.560   3rd Qu.:  1.62   3rd Qu.:  0.49   3rd Qu.:  76.0  
+##  Max.   :  3.970   Max.   :311.00   Max.   :231.00   Max.   : 477.0  
+##  accel_forearm_y accel_forearm_z  magnet_forearm_x magnet_forearm_y
+##  Min.   :-632    Min.   :-410.0   Min.   :-1280    Min.   :-896    
+##  1st Qu.:  55    1st Qu.:-181.0   1st Qu.: -616    1st Qu.:  -1    
+##  Median : 199    Median : -39.0   Median : -378    Median : 592    
+##  Mean   : 162    Mean   : -54.7   Mean   : -313    Mean   : 380    
+##  3rd Qu.: 311    3rd Qu.:  27.0   3rd Qu.:  -75    3rd Qu.: 737    
+##  Max.   : 923    Max.   : 287.0   Max.   :  672    Max.   :1480    
+##  magnet_forearm_z classe  
+##  Min.   :-973     A:3906  
+##  1st Qu.: 181     B:2658  
+##  Median : 508     C:2396  
+##  Mean   : 390     D:2252  
+##  3rd Qu.: 652     E:2525  
+##  Max.   :1090
+</code></pre>
+
+<p>###part 2</p>
+
+<p>2.preprocess the data&ndash;standardizing with center scale method
+(exclude the Classe variable)</p>
+
+<pre><code class="r">preobj &lt;- preProcess(traindata[,-54],method=c(&quot;center&quot;,&quot;scale&quot;))
+traindata1 &lt;- predict(preobj,traindata[,-54])
+testdata1 &lt;- predict(preobj,testdata[,-54])
+</code></pre>
+
+<p>3.use PCA method to extract essential features from the variables,I set the thresh to 0.95 and the pca method produce 27 components to catch 95 percent of the variance </p>
+
+<pre><code class="r">pca1 &lt;- preProcess(traindata1,method=&quot;pca&quot;,thresh=0.95)
+traindata2 &lt;- predict(pca1,traindata1)
+testdata2 &lt;- predict(pca1,testdata1)
+summary(traindata2)
+</code></pre>
+
+<pre><code>##       PC1              PC2             PC3              PC4         
+##  Min.   :-5.568   Min.   :-5.46   Min.   :-70.89   Min.   :-221.50  
+##  1st Qu.:-2.612   1st Qu.:-2.50   1st Qu.: -1.44   1st Qu.:  -0.59  
+##  Median :-0.104   Median : 0.18   Median :  0.21   Median :  -0.09  
+##  Mean   : 0.000   Mean   : 0.00   Mean   :  0.00   Mean   :   0.00  
+##  3rd Qu.: 2.271   3rd Qu.: 1.08   3rd Qu.:  1.45   3rd Qu.:   0.53  
+##  Max.   : 7.790   Max.   : 5.88   Max.   :  5.60   Max.   :   3.48  
+##       PC5              PC6              PC7              PC8        
+##  Min.   :-4.617   Min.   :-4.856   Min.   :-4.194   Min.   :-6.814  
+##  1st Qu.:-1.325   1st Qu.:-1.140   1st Qu.:-1.047   1st Qu.:-0.961  
+##  Median :-0.054   Median : 0.185   Median :-0.070   Median :-0.083  
+##  Mean   : 0.000   Mean   : 0.000   Mean   : 0.000   Mean   : 0.000  
+##  3rd Qu.: 1.182   3rd Qu.: 1.232   3rd Qu.: 0.963   3rd Qu.: 0.992  
+##  Max.   : 6.976   Max.   :11.285   Max.   : 5.749   Max.   : 5.254  
+##       PC9              PC10             PC11             PC12       
+##  Min.   :-4.315   Min.   :-4.096   Min.   :-4.556   Min.   :-5.810  
+##  1st Qu.:-0.948   1st Qu.:-0.800   1st Qu.:-0.749   1st Qu.:-0.732  
+##  Median : 0.001   Median :-0.078   Median : 0.006   Median : 0.051  
+##  Mean   : 0.000   Mean   : 0.000   Mean   : 0.000   Mean   : 0.000  
+##  3rd Qu.: 0.930   3rd Qu.: 0.795   3rd Qu.: 0.818   3rd Qu.: 0.708  
+##  Max.   : 5.025   Max.   : 5.778   Max.   : 6.665   Max.   : 4.079  
+##       PC13             PC14              PC15             PC16       
+##  Min.   :-3.339   Min.   :-2.6715   Min.   :-5.947   Min.   :-4.128  
+##  1st Qu.:-0.596   1st Qu.:-0.8174   1st Qu.:-0.498   1st Qu.:-0.495  
+##  Median :-0.078   Median :-0.0209   Median :-0.009   Median : 0.054  
+##  Mean   : 0.000   Mean   : 0.0000   Mean   : 0.000   Mean   : 0.000  
+##  3rd Qu.: 0.529   3rd Qu.: 0.8357   3rd Qu.: 0.489   3rd Qu.: 0.555  
+##  Max.   : 3.636   Max.   : 2.7051   Max.   : 5.559   Max.   : 3.585  
+##       PC17             PC18             PC19             PC20       
+##  Min.   :-4.068   Min.   :-3.911   Min.   :-3.003   Min.   :-2.424  
+##  1st Qu.:-0.520   1st Qu.:-0.534   1st Qu.:-0.479   1st Qu.:-0.486  
+##  Median :-0.024   Median :-0.013   Median : 0.007   Median :-0.044  
+##  Mean   : 0.000   Mean   : 0.000   Mean   : 0.000   Mean   : 0.000  
+##  3rd Qu.: 0.586   3rd Qu.: 0.501   3rd Qu.: 0.448   3rd Qu.: 0.451  
+##  Max.   : 5.621   Max.   : 4.236   Max.   : 7.117   Max.   : 7.893  
+##       PC21             PC22             PC23             PC24       
+##  Min.   :-2.630   Min.   :-3.164   Min.   :-3.045   Min.   :-4.473  
+##  1st Qu.:-0.422   1st Qu.:-0.409   1st Qu.:-0.378   1st Qu.:-0.329  
+##  Median :-0.046   Median : 0.029   Median : 0.002   Median : 0.018  
+##  Mean   : 0.000   Mean   : 0.000   Mean   : 0.000   Mean   : 0.000  
+##  3rd Qu.: 0.411   3rd Qu.: 0.438   3rd Qu.: 0.357   3rd Qu.: 0.349  
+##  Max.   : 8.942   Max.   : 2.215   Max.   : 3.093   Max.   : 8.685  
+##       PC25             PC26       
+##  Min.   :-4.475   Min.   :-2.667  
+##  1st Qu.:-0.347   1st Qu.:-0.328  
+##  Median :-0.004   Median :-0.017  
+##  Mean   : 0.000   Mean   : 0.000  
+##  3rd Qu.: 0.352   3rd Qu.: 0.300  
+##  Max.   : 3.229   Max.   : 5.287
+</code></pre>
+
+<p>###part 3</p>
+
+<p>4.use random forest method to achieve classification mission. I set the seed to be 32343,so that others can reproduce my result. 
+To make the result more reliable, I also apply cross validation method here. In the train() function, I set the traincontrol method to be 2-fold cross validation. It is 2-fold since I want the whole process to be faster. In fact, I expect the out of sample error to be less than 10%. And finally,the accuracy turns out to be very high. Not a bad result.</p>
+
+<pre><code class="r">library(randomForest)
+</code></pre>
+
+<pre><code>## randomForest 4.6-7
+## Type rfNews() to see new features/changes/bug fixes.
+</code></pre>
+
+<pre><code class="r">set.seed(32343)
+traindata2$classe &lt;- traindata$classe
+modfit &lt;- train(classe ~ .,data=traindata2,method=&quot;rf&quot;,porx=TRUE, trControl = trainControl(method=&#39;cv&#39;,number=2))
+modfit
+</code></pre>
+
+<pre><code>## Random Forest 
+## 
+## 13737 samples
+##    26 predictors
+##     5 classes: &#39;A&#39;, &#39;B&#39;, &#39;C&#39;, &#39;D&#39;, &#39;E&#39; 
+## 
+## No pre-processing
+## Resampling: Cross-Validated (2 fold) 
+## 
+## Summary of sample sizes: 6868, 6869 
+## 
+## Resampling results across tuning parameters:
+## 
+##   mtry  Accuracy  Kappa  Accuracy SD  Kappa SD
+##   2     1         0.9    0.003        0.004   
+##   10    1         0.9    0.004        0.005   
+##   30    0.9       0.9    0.004        0.005   
+## 
+## Accuracy was used to select the optimal model using  the largest value.
+## The final value used for the model was mtry = 2.
+</code></pre>
+
+<p>5.achieve prediction for untouched data based on the fitting model.And the accuracy is quite high.In other words, error for the untouched data is quite low.</p>
+
+<pre><code class="r">prediction &lt;- predict(modfit, testdata2)
+accuracy1 = sum(prediction ==testdata$classe)/length(prediction)
+accuracy1
+</code></pre>
+
+<pre><code>## [1] 0.9805
+</code></pre>
+
+</body>
+
+</html>
+
